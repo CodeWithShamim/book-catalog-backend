@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import routes from "./app/routes";
 
 const app: Application = express();
 dotenv.config();
@@ -17,5 +18,6 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // routes
+app.use("/api/v1", routes);
 
 export default app;
