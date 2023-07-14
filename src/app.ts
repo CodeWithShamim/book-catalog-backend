@@ -1,7 +1,7 @@
-import express, { Application, Request, Response } from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import routes from "./app/routes";
+import express, { Application, Request, Response } from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import routes from './app/routes';
 
 const app: Application = express();
 dotenv.config();
@@ -13,11 +13,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Server successfully working...");
+app.get('/', (req: Request, res: Response) => {
+  res.send('Server successfully working...');
 });
 
 // routes
-app.use("/api/v1", routes);
+app.use('/api/v1', routes);
 
 export default app;
