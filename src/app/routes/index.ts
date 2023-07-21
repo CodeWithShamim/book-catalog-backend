@@ -1,11 +1,11 @@
 import express, { Router } from 'express';
-import { UserRoutes } from '../modules/user/user.route';
+import { BookRoutes } from '../modules/book/book.route';
 const router: Router = express.Router();
 
 const routeElements = [
   {
-    path: '/user',
-    route: UserRoutes,
+    path: '/book',
+    route: BookRoutes,
   },
 ];
 
