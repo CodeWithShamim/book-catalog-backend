@@ -24,8 +24,13 @@ const bookSchema = new Schema<IBook>(
       required: true,
     },
     reviews: {
-      type: [String],
-      required: true,
+      type: [
+        {
+          username: String,
+          rating: Number,
+          comment: String,
+        },
+      ],
     },
   },
   {
