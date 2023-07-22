@@ -1,7 +1,8 @@
 import app from './app';
+import config from './config';
 import dbConnection from './utils/dbConnect';
 
-const port: string | undefined = process.env.PORT;
+const port: string | undefined = config.port;
 
 async function main() {
   await dbConnection();

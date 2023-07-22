@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
+import config from '../config';
 
-const dbURL: string | undefined = process.env.DB_URL;
+const dbURL: string | undefined = config.database_url;
 
 const dbConnection = async () => {
   if (!dbURL) {
