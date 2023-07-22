@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, Types, model } from 'mongoose';
 import { IBook } from './book.interface';
 
 const bookSchema = new Schema<IBook>(
@@ -24,13 +24,8 @@ const bookSchema = new Schema<IBook>(
       required: true,
     },
     reviews: {
-      type: [
-        {
-          username: String,
-          rating: Number,
-          comment: String,
-        },
-      ],
+      type: [Types.ObjectId],
+      ref: 'Comment',
     },
   },
   {

@@ -1,8 +1,4 @@
-type IReview = {
-  username: string;
-  rating?: number;
-  comment: string;
-};
+import { Types } from 'mongoose';
 
 export type IBook = {
   title: string;
@@ -10,5 +6,5 @@ export type IBook = {
   genre: string;
   publicationDate: string;
   image: string;
-  reviews?: IReview[];
+  reviews?: Types.ObjectId[];
 };
