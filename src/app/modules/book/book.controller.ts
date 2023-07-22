@@ -5,6 +5,18 @@ import sendResponse from '../../../utils/sendResponse';
 import httpStatus from 'http-status';
 import { BookService } from './book.service';
 
+export const createBook = catchAsync(async (req: Request, res: Response) => {
+  const data = req.body;
+  const result = await BookService.createBook(data);
+
+  sendResponse<IBook>(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Books created successfully!',
+    data: result,
+  });
+});
+
 export const getAllBooks = catchAsync(async (req: Request, res: Response) => {
   const result = await BookService.getAllBooks();
 
@@ -54,6 +66,7 @@ export const deleteBook = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const BookController = {
+  createBook,
   getAllBooks,
   getSingleBook,
   updateBook,

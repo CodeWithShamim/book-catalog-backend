@@ -1,6 +1,11 @@
 import { IBook } from './book.interface';
 import Book from './book.model';
 
+const createBook = async (payload: IBook): Promise<IBook> => {
+  const books = await Book.create(payload);
+  return books;
+};
+
 const getAllBooks = async (): Promise<IBook[]> => {
   const books = await Book.find({});
   return books;
@@ -28,6 +33,7 @@ const deleteBook = async (id: string): Promise<IBook | null> => {
 };
 
 export const BookService = {
+  createBook,
   getAllBooks,
   getSingleBook,
   updateBook,
