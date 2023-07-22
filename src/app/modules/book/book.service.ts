@@ -6,6 +6,30 @@ const getAllBooks = async (): Promise<IBook[]> => {
   return books;
 };
 
+const getSingleBook = async (id: string): Promise<IBook | null> => {
+  const book = await Book.findById(id);
+  return book;
+};
+
+const updateBook = async (
+  id: string,
+  payload: Partial<IBook>,
+): Promise<IBook | null> => {
+  const book = await Book.findOneAndUpdate({ _id: id }, payload, {
+    new: true,
+    runValidators: true,
+  });
+  return book;
+};
+
+const deleteBook = async (id: string): Promise<IBook | null> => {
+  const book = await Book.findOneAndDelete({ _id: id });
+  return book;
+};
+
 export const BookService = {
   getAllBooks,
+  getSingleBook,
+  updateBook,
+  deleteBook,
 };

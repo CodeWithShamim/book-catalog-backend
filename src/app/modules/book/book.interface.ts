@@ -1,6 +1,6 @@
-type IComment = {
+type IReview = {
   username: string;
-  rating: number;
+  rating?: number;
   comment: string;
 };
 
@@ -10,5 +10,5 @@ export type IBook = {
   genre: string;
   publicationDate: string;
   image: string;
-  reviews?: IComment[];
+  reviews?: IReview[];
 };
