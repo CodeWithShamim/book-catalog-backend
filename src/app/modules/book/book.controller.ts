@@ -4,6 +4,8 @@ import { IBook } from './book.interface';
 import sendResponse from '../../../utils/sendResponse';
 import httpStatus from 'http-status';
 import { BookService } from './book.service';
+import pick from '../../../utils/pick';
+import { bookFilterableFields } from './book.constant';
 
 export const createBook = catchAsync(async (req: Request, res: Response) => {
   const data = req.body;
@@ -18,7 +20,8 @@ export const createBook = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const getAllBooks = catchAsync(async (req: Request, res: Response) => {
-  const result = await BookService.getAllBooks();
+  const filters = pick(req.query, bookFilterableFields);
+  const result = await BookService.getAllBooks(filters);
 
   sendResponse<IBook[]>(res, {
     success: true,

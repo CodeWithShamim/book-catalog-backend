@@ -18,6 +18,10 @@ const createComment = async (
     throw new ApiError(httpStatus.NOT_FOUND, 'Failed to create comment.');
   }
 
+  if (!book?.reviews) {
+    book.reviews = [comment._id];
+  }
+
   book.reviews?.push(comment._id);
   await book.save();
 

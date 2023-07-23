@@ -8,3 +8,9 @@ export type IBook = {
   image: string;
   reviews?: Types.ObjectId[];
 };
+
+export type IBookFilters = {
+  genre: string;
+  publicationDate: string;
+  searchTerm: string;
+};
