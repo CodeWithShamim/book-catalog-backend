@@ -23,6 +23,10 @@ const bookSchema = new Schema<IBook>(
       type: String,
       required: true,
     },
+    ref: {
+      type: String,
+      required: true,
+    },
     reviews: {
       type: [Types.ObjectId],
       ref: 'Comment',
